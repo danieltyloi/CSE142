@@ -13,10 +13,9 @@ with open("knn_train.csv","r") as f:
         # print(row)
 
 def euclideanDistance(length1, length2):
-    
+
     if len(length1) != len(length2):
-        print("Length of data is not equal")
-        return 0
+        raise Exception('Length of Lists are not equal')
 
     distance = 0
     for i in range(len(length1)-1):
@@ -26,6 +25,7 @@ def euclideanDistance(length1, length2):
 
 #testData1 = DataList[1].copy()
 #testData2 = DataList[2].copy()
+#testData1 .remove('4000')
 
 #print(testData1)
 #print(testData2)
