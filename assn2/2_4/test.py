@@ -2,6 +2,8 @@ import csv
 import math
 from operator import itemgetter
 import random
+import sys
+import argparse
 
 '''
 with open("knn_train.csv","r") as f:
@@ -162,12 +164,21 @@ def main():
 
         testInstance = []
         testInstance = DataList2[0].copy()
+        
+        parser = argparse.ArgumentParser()
+        parser.add_argument("--K")
+        parser.add_argument("--method")
+        args = parser.parse_args()
+        #print(args.K)
 
-        x = kNearestNeighbors(DataList, testInstance, 1, "L2")
+        print("The List of Neighbors are:")
+        x = kNearestNeighbors(DataList, testInstance, int(args.K), str(args.method))
         print(x)
+        print()
 
         result = prediction(x)
-        print(x)
+        print("The predicted label will be: %d" % result)
+        print()
 
 
         #Answers Problem 4 No.6
