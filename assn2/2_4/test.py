@@ -59,7 +59,7 @@ def maxNormDistance(list1, list2):
 #x = euclideanDistance(testData1, testData2)
 #print(x)
 
-def kNearestNeighbors(trainingSet, testInstance, k):
+def kNearestNeighbors(trainingSet, testInstance, k, method):
     '''
     with open("knn_train.csv","r") as f:
         reader = csv.reader(f)
@@ -72,10 +72,27 @@ def kNearestNeighbors(trainingSet, testInstance, k):
     distanceList = []
         
     #Finds distances of testValue to TrainingSet
-    for i in trainingSet:
-        dist = euclideanDistance(testInstance, i)
-        #print(dist)
-        distanceList.append((i[0], dist))
+    if method == "L1":
+
+        for i in trainingSet:
+            #print(i)
+            dist = manhattanDistance(testInstance, i)
+            #print(dist)
+            distanceList.append((i[0], dist))
+    
+    elif method == "Linf":
+        for i in trainingSet:
+            #print(i)
+            dist = maxNormDistance(testInstance, i)
+            #print(dist)
+            distanceList.append((i[0], dist))
+    
+    else:
+        for i in trainingSet:
+            #print(i)
+            dist = euclideanDistance(testInstance, i)
+            #print(dist)
+            distanceList.append((i[0], dist))
     
     #print(distanceList)
 
@@ -114,7 +131,19 @@ def main():
 
         for row in reader:
             DataList += [row]
-        
+
+    with open("knn_test.csv", "r") as g:
+        reader2 = csv.reader(g)
+        features2 = next(reader2)
+
+        DataList2 = []
+
+        for row in reader2:
+            DataList2 += [row]
+
+        #print(DataList)
+        #print(DataList2)
+
         #testData1 = DataList[1].copy()
         #testData2 = DataList[2].copy()
         #testData1 .remove('4000')
@@ -131,12 +160,78 @@ def main():
         #maxNormTest = maxNormDistance(testData1, testData2)
         #print(maxNormTest)
 
-        testInstance = ['1','2','9','2250','22']
-        x = kNearestNeighbors(DataList, testInstance, 4)
-        #print(x)
+        testInstance = []
+        testInstance = DataList2[0].copy()
+
+        x = kNearestNeighbors(DataList, testInstance, 1, "L2")
+        print(x)
 
         result = prediction(x)
-        #print(result)
-    
+        print(x)
+
+
+        #Answers Problem 4 No.6
+        """        
+        for i in range(10):
+
+            testInstance = DataList2[i].copy()
+            print("THIS IS FOR INSTANCE %d" % (i+1))
+            #manhattanTest = maxNormDistance(DataList[0], DataList2[0])
+            #print(manhattanTest)
+
+            x = kNearestNeighbors(DataList, testInstance, 1, "L2")
+            #print(x)
+
+            result = prediction(x)
+            print(result)
+ 
+            x = kNearestNeighbors(DataList, testInstance, 3, "L2")
+            #print(x)
+
+            result = prediction(x)
+            print(result)
+ 
+            x = kNearestNeighbors(DataList, testInstance, 5, "L2")
+            #print(x)
+
+            result = prediction(x)
+            print(result)
+ 
+            x = kNearestNeighbors(DataList, testInstance, 720, "L2")
+            #print(x)
+
+            result = prediction(x)
+            print(result)
+            print()
+        """    
+        
+        #Answers Problem 4 No.7
+        """
+        for i in range(10):
+
+            testInstance = DataList2[i].copy()
+            print("THIS IS FOR INSTANCE %d" % (i+1))
+            #manhattanTest = maxNormDistance(DataList[0], DataList2[0])
+            #print(manhattanTest)
+            
+            x = kNearestNeighbors(DataList, testInstance, 1, "L1")
+            #print(x)
+
+            result = prediction(x)
+            print("This result using L1 is %s" % result)
+ 
+            x = kNearestNeighbors(DataList, testInstance, 3, "L2")
+            #print(x)
+
+            result = prediction(x)
+            print("The result using L2 is %s" % result)
+ 
+            x = kNearestNeighbors(DataList, testInstance, 5, "Linf")
+            #print(x)
+
+            result = prediction(x)
+            print("The result using Linf is %s" % result)
+            print() 
+        """    
 if __name__ == "__main__":
     main()
