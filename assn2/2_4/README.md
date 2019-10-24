@@ -1,0 +1,1 @@
+usage: python YourCodeName.py --K 3 --method L1 #or L2 or Linf
