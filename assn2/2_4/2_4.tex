@@ -1,0 +1,80 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[table,xcdraw]{xcolor}
+
+
+\title{assn2.4}
+\author{
+  Daniel Loi\\
+  \texttt{dtloi@ucsc.edu}
+  \texttt{1547401}
+  \and
+  Kevin Arellano\\
+  \texttt{kcarella@ucsc.edu}
+  \texttt{1550271}
+  \and
+  Claudio Sangeroki\\
+  \texttt{csangero@ucsc.edu}
+  \texttt{1677403}
+}
+\date{October 2019}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+    \item
+    \begin{enumerate}
+        \item Check .zip file.
+        \item Manhattan = $2811$
+        \item 
+        Euclidean = $2750.458689018979$ 
+        \item 
+        MaxNorm = $2750$
+        \item (-1,-1,1,-1,1)
+        \item check below for table
+        \begin{table}[]
+        \caption {f} 
+        \begin{tabular}{|l|l|l|l|l|}
+        \hline
+        test instance & K=1, $L_2$ & K=3, $L_2$ & K=5, $L_2$ & K=720, $L_2$ \\ \hline
+        1             & -1         & -1         & -1         & -1           \\ \hline
+        2             & 1          & 1          & 1          & -1           \\ \hline
+        3             & 1          & 1          & -1         & -1           \\ \hline
+        4             & 1          & 1          & 1          & -1           \\ \hline
+        5             & 1          & 1          & -1         & -1           \\ \hline
+        6             & -1         & 1          & 1          & -1           \\ \hline
+        7             & -1         & -1         & -1         & -1           \\ \hline
+        8             & 1          & 1          & 1          & -1           \\ \hline
+        9             & 1          & 1          & 1          & -1           \\ \hline
+        10            & -1         & -1         & -1         & -1           \\ \hline
+        \end{tabular}
+        \end{table}
+        
+        \item check below for table
+        \begin{table}[]
+        \caption {g} 
+        \begin{tabular}{|l|l|l|l|}
+        \hline
+        test instance & $L_1$ & $L_2$ & $L_\inf$ \\ \hline
+        1             & -1    & -1    & -1       \\ \hline
+        2             & 1     & 1     & 1        \\ \hline
+        3             & 1     & 1     & -1       \\ \hline
+        4             & 1     & 1     & 1        \\ \hline
+        5             & 1     & 1     & -1       \\ \hline
+        6             & -1    & 1     & 1        \\ \hline
+        7             & -1    & -1    & -1       \\ \hline
+        8             & 1     & 1     & 1        \\ \hline
+        9             & 1     & 1     & 1        \\ \hline
+        10            & -1    & -1    & -1       \\ \hline
+        \end{tabular}
+        \end{table}
+        
+
+    \end{enumerate}
+    
+    
+\end{enumerate}
+    
+\end{document}

@@ -9,11 +9,11 @@
   \and
   Kevin Arellano\\
   \texttt{kcarella@ucsc.edu}
-  \texttt{PUT ID NUMBER HERE}
+  \texttt{1550271}
   \and
   Claudio Sangeroki\\
   \texttt{csangero@ucsc.edu}
-  \texttt{PUT ID NUMBER HERE}
+  \texttt{1677403}
 }
 \date{October 2019}
 
@@ -22,6 +22,23 @@
 \maketitle
 
 \begin{enumerate}
+    \item 
+    \[P(X_{i} = x_{ij} | Y = y_k) = P(<X_1, X_2, ..., X_n> | Y = y_k) \]
+    \[= P(X_1 | Y = y_k) * P(X_2 | Y = y_k) *...*P(X_n | Y = y_k) \]
+    \[=\prod_{i=1}^{n}P(X_n | Y = y_k)\]
+    \[=\prod_{i=1}^{n}\frac{1}{\sigma\sqrt{2\pi}}exp{\frac{-(x_{i}-\mu)^{2}}{2\sigma^{2}}}\]
+    \[=\prod_{i=1}^{n}(\frac{1}{\sigma\sqrt{2\pi}})\prod_{i=1}^{n}(exp{\frac{-(x_{i}-\mu)^{2}}{2\sigma^{2}}})\]
+    \[=(\frac{1}{\sigma\sqrt{2\pi}})^n\prod_{i=1}^{n}(exp{\frac{-(x_{i}-\mu)^{2}}{2\sigma^{2}}})\]
+    \[=(\frac{1}{\sigma\sqrt{2\pi}})^n(exp\sum_{i=1}^{n}{\frac{-(x_{i}-\mu)^{2}}{2\sigma^{2}}})\]
+    \[L(P(X_n | Y = y_k))=log((\frac{1}{\sigma\sqrt{2\pi}})^n(exp\sum_{i=1}^{n}{\frac{-(x_{i}-\mu)^{2}}{2\sigma^{2}}}))\]
+    \[=(nlog(\frac{1}{\sigma\sqrt{2\pi}})log(exp\sum_{i=1}^{n}{\frac{-(x_{i}-\mu)^{2}}{2\sigma^{2}}}))\]
+    \[=(n(log(1)-log(\sigma\sqrt{2\pi}))log(exp\sum_{i=1}^{n}{\frac{-(x_{i}-\mu)^{2}}{2\sigma^{2}}}))\]
+    \[=(n(-log(\sigma)+log(\sqrt{2\pi})))log(exp\sum_{i=1}^{n}{\frac{-(x_{i}-\mu)^{2}}{2\sigma^{2}}}))\]
+    \[=(-log(\sigma)n+log(\sqrt{2\pi})n)log(exp\sum_{i=1}^{n}{\frac{-(x_{i}-\mu)^{2}}{2\sigma^{2}}}))\]
+    \[=(-log(\sigma)n+log(\sqrt{2\pi})n)(\sum_{i=1}^{n}{\frac{-(x_{i}-\mu)^{2}}{2\sigma^{2}}}))\]
+    \[\frac{dL(P(X_n | Y = y_k))}{d\mu}=(-log(\sigma)n+log(\sqrt{2\pi})n)(\sum_{i=1}^{n}{\frac{-(x_{i}-\mu)^{2}}{2\sigma^{2}}}))=0\]
+    \[=\sum_{i=1}^{n}{\frac{2((x_{i}-\mu))}{2\sigma^{2}}}=0\]
+    \[=\sum_{i=1}^{n}{\frac{(x_{i}-\mu)}{\sigma^{2}}}=0\]
     
     
     
